@@ -1,0 +1,25 @@
+# This file was created with Minddesk Qubicle 3.0
+# Get Qubicle at www.getqubicle.com
+
+mtllib Highway.mtl
+
+vn 0.0 0.0 1.0
+vn 0.0 0.0 -1.0
+vn -1.0 0.0 0.0
+vn 1.0 0.0 0.0
+vn 0.0 1.0 0.0
+vn 0.0 -1.0 0.0
+
+v -33.00000 2.00000 -64.00000
+v -33.00000 2.00000 64.00000
+v 33.00000 2.00000 64.00000
+v 33.00000 2.00000 -64.00000
+
+vt 0.00781 0.50391
+vt 0.00781 0.00391
+vt 0.52344 0.00391
+vt 0.52344 0.50391
+
+g Highway
+usemtl Highway_Material
+f 1/1/5 2/2/5 3/3/5 4/4/5
