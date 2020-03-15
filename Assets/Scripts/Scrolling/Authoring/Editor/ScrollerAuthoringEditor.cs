@@ -34,7 +34,7 @@ namespace FruityBasket.Scrolling.Authoring
             {
                 DrawProperty(DirectionProperty);
 
-                DrawProperty(RelocateDistanceProperty, GetEnumProperty<TresholdAction>(RelocateDistanceProperty) == TresholdAction.Relocate);
+                DrawProperty(RelocateDistanceProperty, GetEnumProperty<TresholdAction>(TresholdActionProperty) == TresholdAction.Relocate);
 
                 DrawProperty(SpeedProperty);
 

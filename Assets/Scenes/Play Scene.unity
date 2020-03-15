@@ -168,9 +168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84aa922951fc5d44581694da07cc55b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  relocateDistance: 768
   speed: 100
   treshold: -128
-  relocateDistance: 768
   direction: -1
   tresholdAction: 1
 --- !u!114 &45233148
@@ -344,9 +344,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84aa922951fc5d44581694da07cc55b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  relocateDistance: 768
   speed: 100
   treshold: -128
-  relocateDistance: 768
   direction: -1
   tresholdAction: 1
 --- !u!114 &421246578
@@ -785,9 +785,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84aa922951fc5d44581694da07cc55b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  relocateDistance: 768
   speed: 100
   treshold: -128
-  relocateDistance: 768
   direction: -1
   tresholdAction: 1
 --- !u!114 &733322641
@@ -1076,9 +1076,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84aa922951fc5d44581694da07cc55b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  relocateDistance: 768
   speed: 100
   treshold: -128
-  relocateDistance: 768
   direction: -1
   tresholdAction: 1
 --- !u!114 &1269066405
@@ -1252,9 +1252,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84aa922951fc5d44581694da07cc55b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  relocateDistance: 768
   speed: 100
   treshold: -128
-  relocateDistance: 768
   direction: -1
   tresholdAction: 1
 --- !u!114 &1318463100
@@ -1514,9 +1514,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84aa922951fc5d44581694da07cc55b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  relocateDistance: 768
   speed: 100
   treshold: -128
-  relocateDistance: 768
   direction: -1
   tresholdAction: 1
 --- !u!114 &1713089715
