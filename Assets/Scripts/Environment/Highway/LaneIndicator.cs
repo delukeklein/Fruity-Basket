@@ -5,7 +5,6 @@ using Unity.Entities;
 namespace FruityBasket.Environment.Highway 
 {
     [Serializable]
-    [GenerateAuthoringComponent]
     public struct LaneIndicator : IComponentData
     {
         public Lane Value;

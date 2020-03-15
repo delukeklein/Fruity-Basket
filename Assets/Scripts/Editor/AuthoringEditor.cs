@@ -1,14 +1,12 @@
-﻿#if UNITY_EDITOR
-
-using System;
+﻿using System;
 
 using UnityEditor;
 
 using UnityEngine;
 
-namespace FruityBasket.Inspector
+namespace FruityBasket.Editor
 {
-    public abstract class AuthoringEditor<T> : Editor where T : MonoBehaviour
+    public abstract class AuthoringEditor<T> : UnityEditor.Editor where T : MonoBehaviour
     {
         protected T Target => (T)target;
 
@@ -23,19 +21,6 @@ namespace FruityBasket.Inspector
 
         protected abstract void OnDrawGUI();
 
-        protected void DrawProperty(string property)
-        {
-            EditorGUILayout.PropertyField(serializedObject.FindProperty(property));
-        }
-
-        protected void DrawProperty(string property, bool condition)
-        {
-            if (condition)
-            {
-                EditorGUILayout.PropertyField(serializedObject.FindProperty(property));
-            }
-        }
-
         protected void DrawFoldout(string label, ref bool foldout, Action propertiesCallback)
         {
             if (foldout = EditorGUILayout.BeginFoldoutHeaderGroup(foldout, label))
@@ -49,7 +34,21 @@ namespace FruityBasket.Inspector
 
             EditorGUILayout.EndFoldoutHeaderGroup();
         }
+
+        protected void DrawProperty(string property)
+        {
+            EditorGUILayout.PropertyField(serializedObject.FindProperty(property));
+        }
+
+        protected void DrawProperty(string property, bool condition)
+        {
+            if (condition)
+            {
+                EditorGUILayout.PropertyField(serializedObject.FindProperty(property));
+            }
+        }
+
+        protected T0 GetEnumProperty<T0>(string property) where T0 : Enum => (T0)(object)serializedObject.FindProperty(property).enumValueIndex;
+        
     }
 }
-
-#endif

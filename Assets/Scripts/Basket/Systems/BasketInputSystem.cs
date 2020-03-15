@@ -22,7 +22,7 @@ namespace FruityBasket.Basket.Systems
                 .WithAll<Basket>()
                 .ForEach((ref LaneIndicator lane) =>
                 {
-                    lane.Value = (Lane)clamp((int)lane.Value + axis, (int)Lane.Left, (int)Lane.Right);
+                    lane.Value = (Lane)clamp(axis + (int)lane.Value, (int)Lane.Left, (int)Lane.Right);
                 })
                 .ScheduleParallel();
         }

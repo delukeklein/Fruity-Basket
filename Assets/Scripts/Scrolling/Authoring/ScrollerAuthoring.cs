@@ -9,9 +9,9 @@ namespace FruityBasket.Scrolling.Authoring
     [RequiresEntityConversion]
     public partial class ScrollerAuthoring : MonoBehaviour, IConvertGameObjectToEntity
     {
+        [SerializeField] private float relocateDistance;
         [SerializeField] private float speed;
         [SerializeField] private float treshold;
-        [SerializeField] private float relocateDistance;
 
         [SerializeField] private Direction direction = Direction.Backward;
 
@@ -19,17 +19,17 @@ namespace FruityBasket.Scrolling.Authoring
 
         public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
         {
-            dstManager.AddComponentData(entity, new ScrollerSpeed { Value = speed });
-            dstManager.AddComponentData(entity, new ScrollerDirection { Value = direction });
-            dstManager.AddComponentData(entity, new ScrollerTreshold { Value = treshold });
-
             if (tresholdAction == TresholdAction.Relocate)
             {
                 dstManager.AddComponentData(entity, new RelocateScrollerDistance { Value = relocateDistance });
             }
+
+            dstManager.AddComponentData(entity, new ScrollerDirection { Value = direction });
+            dstManager.AddComponentData(entity, new ScrollerSpeed { Value = speed });
+            dstManager.AddComponentData(entity, new ScrollerTreshold { Value = treshold });
         }
 
-        private enum TresholdAction
+        public enum TresholdAction
         {
             Destroy,
             Relocate
