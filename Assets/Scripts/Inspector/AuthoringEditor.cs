@@ -36,16 +36,18 @@ namespace FruityBasket.Inspector
             }
         }
 
-        protected void DrawFoldout(string label, ref bool foldout, Action onFoldout)
+        protected void DrawFoldout(string label, ref bool foldout, Action propertiesCallback)
         {
-            if (foldout = EditorGUILayout.Foldout(foldout, label, !foldout, EditorStyles.foldoutHeader))
+            if (foldout = EditorGUILayout.BeginFoldoutHeaderGroup(foldout, label))
             {
                 EditorGUI.indentLevel++;
 
-                onFoldout.Invoke();
+                propertiesCallback.Invoke();
 
                 EditorGUI.indentLevel--;
             }
+
+            EditorGUILayout.EndFoldoutHeaderGroup();
         }
     }
 }
