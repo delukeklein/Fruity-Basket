@@ -6,6 +6,8 @@ using UnityEngine;
 
 namespace FruityBasket.Editor
 {
+    public delegate void DrawCallback();
+
     public abstract class AuthoringEditor<T> : UnityEditor.Editor where T : MonoBehaviour
     {
         protected T Target => (T)target;
@@ -21,13 +23,13 @@ namespace FruityBasket.Editor
 
         protected abstract void OnDrawGUI();
 
-        protected void DrawFoldout(string label, ref bool foldout, Action propertiesCallback)
+        protected void DrawFoldout(string label, ref bool foldout, DrawCallback drawCallback)
         {
             if (foldout = EditorGUILayout.BeginFoldoutHeaderGroup(foldout, label))
             {
                 EditorGUI.indentLevel++;
 
-                propertiesCallback.Invoke();
+                drawCallback.Invoke();
 
                 EditorGUI.indentLevel--;
             }
@@ -37,18 +39,20 @@ namespace FruityBasket.Editor
 
         protected void DrawProperty(string property)
         {
-            EditorGUILayout.PropertyField(serializedObject.FindProperty(property));
+            EditorGUILayout.PropertyField(FindProperty(property));
         }
 
         protected void DrawProperty(string property, bool condition)
         {
             if (condition)
             {
-                EditorGUILayout.PropertyField(serializedObject.FindProperty(property));
+                EditorGUILayout.PropertyField(FindProperty(property));
             }
         }
 
-        protected T0 GetEnumProperty<T0>(string property) where T0 : Enum => (T0)(object)serializedObject.FindProperty(property).enumValueIndex;
-        
+        protected TEnum GetEnumProperty<TEnum>(string property) where TEnum : Enum => (TEnum)(object)FindProperty(property).intValue;
+
+        private SerializedProperty FindProperty(string property) => serializedObject.FindProperty(property);
+
     }
 }

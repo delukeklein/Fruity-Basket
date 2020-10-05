@@ -1,6 +1,10 @@
 ﻿using FruityBasket.Editor;
 
+using FruityBasket.Environment.Highway;
+
 using UnityEditor;
+
+using UnityEngine;
 
 namespace FruityBasket.Basket.Authoring.Editor
 {
@@ -9,6 +13,7 @@ namespace FruityBasket.Basket.Authoring.Editor
     public class BasketAuthoringEditor : AuthoringEditor<BasketAuthoring>
     {
         private const string DataLabel = "Data";
+
         private const string LaneIndicatorProperty = "laneIndicator";
         private const string LaneTranslationSpeedProperty = "laneTranslationSpeed";
 
@@ -17,6 +22,8 @@ namespace FruityBasket.Basket.Authoring.Editor
         protected override void OnDrawGUI()
         {
             DrawData();
+
+            UpdateBasketPosition();
         }
 
         private void DrawData()
@@ -27,6 +34,15 @@ namespace FruityBasket.Basket.Authoring.Editor
 
                 DrawProperty(LaneTranslationSpeedProperty);
             });
+        }
+
+        private void UpdateBasketPosition()
+        {
+            var position = Target.transform.position;
+
+            position.x = (int)GetEnumProperty<Lane>(LaneIndicatorProperty) * 20f;
+
+            Target.transform.position = position;
         }
     }
 }

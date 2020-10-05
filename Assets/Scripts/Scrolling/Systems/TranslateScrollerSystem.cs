@@ -5,6 +5,7 @@ using Unity.Transforms;
 namespace FruityBasket.Scrolling.Systems
 {
     [UpdateBefore(typeof(RelocateScrollerSystem))]
+    [UpdateBefore(typeof(DestroyScrollerSystem))]
     [UpdateInGroup(typeof(ScrollerSystemGroup))]
     public class TranslateScrollerSystem : SystemBase
     {

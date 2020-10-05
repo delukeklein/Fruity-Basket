@@ -15,14 +15,14 @@ namespace FruityBasket.Basket.Systems
     {
         protected override void OnUpdate()
         {
-            int axis = (Keyboard.current.aKey.wasPressedThisFrame ? -1 : 0) + 
-                       (Keyboard.current.dKey.wasPressedThisFrame ? 1 : 0);
+            var horizontal = (Keyboard.current.aKey.wasPressedThisFrame ? -1 : 0) +
+                             (Keyboard.current.dKey.wasPressedThisFrame ? 1 : 0);
 
             Entities
                 .WithAll<Basket>()
                 .ForEach((ref LaneIndicator lane) =>
                 {
-                    lane.Value = (Lane)clamp(axis + (int)lane.Value, (int)Lane.Left, (int)Lane.Right);
+                    lane.Value = (Lane)clamp(horizontal + (int)lane.Value, (int)Lane.Left, (int)Lane.Right);
                 })
                 .ScheduleParallel();
         }

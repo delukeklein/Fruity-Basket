@@ -11,12 +11,12 @@ namespace FruityBasket.Scrolling.Systems
 
         protected override void OnCreate()
         {
-            commandBufferSystem = World.GetOrCreateSystem<BeginSimulationEntityCommandBufferSystem>();
+            commandBufferSystem = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
         }
 
         protected override void OnUpdate()
         {
-            EntityCommandBuffer.Concurrent commandBuffer = commandBufferSystem.CreateCommandBuffer().ToConcurrent();
+            var commandBuffer = commandBufferSystem.CreateCommandBuffer().ToConcurrent();
 
             Entities
                 .WithNone<RelocateScrollerDistance>()

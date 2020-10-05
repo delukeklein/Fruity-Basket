@@ -11,24 +11,25 @@ namespace FruityBasket.Scrolling.Authoring
     public class ScrollerAuthoringEditor : AuthoringEditor<ScrollerAuthoring>
     {
         private const string DataLabel = "Data";
+        private const string SettingsLabel = "Settings";
+
         private const string DirectionProperty = "direction";
         private const string RelocateDistanceProperty = "relocateDistance";
-        private const string SettingsLabel = "Settings";
         private const string SpeedProperty = "speed";
-        private const string TresholdActionProperty = "tresholdAction";
         private const string TresholdProperty = "treshold";
+        private const string TresholdActionProperty = "tresholdAction";
 
         private bool dataFoldout = true;
         private bool settingsFoldout = true;
 
         protected override void OnDrawGUI()
         {
-            DrawData();
+            DrawDataProperties();
 
-            DrawSettings();
+            DrawSettingsProperties();
         }
 
-        private void DrawData()
+        private void DrawDataProperties()
         {
             DrawFoldout(DataLabel, ref dataFoldout, () =>
             {
@@ -42,7 +43,7 @@ namespace FruityBasket.Scrolling.Authoring
             });
         }
 
-        private void DrawSettings()
+        private void DrawSettingsProperties()
         {
             DrawFoldout(SettingsLabel, ref settingsFoldout, () =>
             {

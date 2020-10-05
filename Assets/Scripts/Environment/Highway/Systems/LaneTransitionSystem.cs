@@ -15,7 +15,7 @@ namespace FruityBasket.Environment.Highway.Systems
             Entities
                 .ForEach((ref Translation translation, in LaneIndicator lane, in LaneTranslationSpeed speed) =>
                 {
-                    translation.Value.x = Mathf.MoveTowards(translation.Value.x, (float)lane.Value * 20, speed.Value * deltaTime);
+                    translation.Value.x = Mathf.MoveTowards(translation.Value.x, (float)lane.Value * 20f, speed.Value * deltaTime);
                 })
                 .ScheduleParallel();
         }

@@ -2,7 +2,7 @@
 
 using Unity.Entities;
 
-namespace FruityBasket.Environment.Highway 
+namespace FruityBasket.Environment.Highway
 {
     [Serializable]
     public struct LaneIndicator : IComponentData
@@ -10,7 +10,7 @@ namespace FruityBasket.Environment.Highway
         public Lane Value;
     }
 
-    public enum Lane
+    public enum Lane : int
     {
         Left = -1,
         Middle = 0,

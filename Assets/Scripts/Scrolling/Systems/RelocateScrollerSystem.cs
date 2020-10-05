@@ -11,7 +11,7 @@ namespace FruityBasket.Scrolling.Systems
         protected override void OnUpdate()
         {
             Entities
-                .ForEach((ref Translation translation, in RelocateScrollerDistance relocateDistance, in ScrollerTreshold treshold) => 
+                .ForEach((ref Translation translation, in RelocateScrollerDistance relocateDistance, in ScrollerTreshold treshold) =>
                 {
                     if (translation.Value.z <= treshold.Value)
                     {
